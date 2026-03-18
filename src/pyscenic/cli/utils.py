@@ -143,7 +143,7 @@ def load_exp_matrix(
                 return adata.X.to_memory(), adata.var_names.values, adata.obs_names.values
             else:
                 return pd.DataFrame(
-                    adata.X.value.todense(),
+                    adata.X.todense(),
                     index=adata.obs_names.values,
                     columns=adata.var_names.values,
                 )
