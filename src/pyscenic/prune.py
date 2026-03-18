@@ -338,7 +338,7 @@ def _distributed_calc(
             # https://stackoverflow.com/questions/47776936/why-is-a-computation-much-slower-within-a-dask-distributed-worker
 
             return aggregate_func(
-                (
+                list(
                     delayed(transform_func)(db, gs_chunk, delayed_or_future_annotations)
                     for db in delayed_or_future_dbs
                     for gs_chunk in chunked_iter(modules, module_chunksize)
