@@ -142,11 +142,7 @@ def load_exp_matrix(
                 # expr, gene, cell:
                 return adata.X.to_memory(), adata.var_names.values, adata.obs_names.values
             else:
-                return pd.DataFrame(
-                    adata.X.todense(),
-                    index=adata.obs_names.values,
-                    columns=adata.var_names.values,
-                )
+                return adata.to_df()
 
         else:
             df = pd.read_csv(
