@@ -137,7 +137,7 @@ def load_exp_matrix(
         elif ".h5ad" in extension:
             from anndata import read_h5ad
 
-            adata = read_h5ad(filename=fname, backed="r")
+            adata = read_h5ad(filename=fname)
             if return_sparse:
                 # expr, gene, cell:
                 return adata.X, adata.var_names, adata.obs_names
